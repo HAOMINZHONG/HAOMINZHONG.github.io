@@ -107,3 +107,10 @@ header{position:relative}
  .viewer-stage>img{margin:auto;max-height:none}.viewer-stage .poster-crop{margin:auto}
  footer{margin:0 6%;font-size:12px;gap:16px;flex-wrap:wrap;align-items:center}footer a{min-height:44px;display:flex;align-items:center}
 }
+
+/* Personal portrait: original editorial warmth within the About section. */
+.about-with-portrait{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:clamp(32px,6vw,85px)}
+.about-portrait{max-width:440px;width:100%;background:#e8d9cc}
+.about-portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.about-with-portrait h2{font-size:clamp(30px,3.5vw,46px);margin-bottom:30px;line-height:1.4}
+@media(max-width:760px){.about-with-portrait{grid-template-columns:minmax(0,1fr);gap:30px}.about-portrait{width:min(100%,280px);margin:0 auto}.about-with-portrait h2{font-size:clamp(28px,7.5vw,36px);margin-bottom:24px}}
