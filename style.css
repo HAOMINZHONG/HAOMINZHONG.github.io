@@ -114,3 +114,65 @@ header{position:relative}
 .about-portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
 .about-with-portrait h2{font-size:clamp(30px,3.5vw,46px);margin-bottom:30px;line-height:1.4}
 @media(max-width:760px){.about-with-portrait{grid-template-columns:minmax(0,1fr);gap:30px}.about-portrait{width:min(100%,280px);margin:0 auto}.about-with-portrait h2{font-size:clamp(28px,7.5vw,36px);margin-bottom:24px}}
+
+/* Approved refresh: editorial portraits, unified covers and distinct mobile chapters. */
+.hero-top{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center;margin-top:24px}
+.hero-top h1{font-size:clamp(76px,9vw,126px);letter-spacing:-.045em;margin:0;position:relative;z-index:1}
+.hero-portrait{position:relative;overflow:hidden;aspect-ratio:1.08;min-width:0}
+.hero-portrait img{position:absolute;right:0;top:0;height:100%;width:auto;max-width:none;mix-blend-mode:multiply}
+.hero-side{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:30px;max-width:590px;font-size:12px;line-height:1.6;letter-spacing:1px}
+.hero-side>span{padding:4px 22px;border-left:1px solid var(--line)}
+.hero-side>span:first-child{border-left:0;padding-left:0}
+.hero-bottom{margin-top:24px}
+.about-portrait{background:#efedf2}.about-portrait img{aspect-ratio:1;object-fit:contain}
+.card-image.full-cover{padding:0;aspect-ratio:1.5}
+.card-image.full-cover>img{width:100%;height:100%;max-height:none;object-fit:cover}
+.card-image.full-cover .card-number{top:auto;bottom:14px;left:16px;background:rgba(250,250,248,.93);padding:6px 9px;border-radius:2px;font-size:12px;z-index:1}
+.card-image.full-cover .card-arrow{display:grid;place-items:center;background:rgba(250,250,248,.93);width:34px;height:34px;border-radius:50%;right:14px;bottom:14px;z-index:1}
+.ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.12em;flex-shrink:0}
+.featured-description p+p{margin-top:10px}
+.featured h2{letter-spacing:-.025em}
+.text-link{display:inline-flex;align-items:center;gap:24px}.text-link b{display:inline-flex;margin:0}
+.chapter-card,button,.nav-resume,.circle-link,.text-link,.zoom-image,.next-chapter{transition:transform .18s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease}
+.ui-arrow{transition:transform .2s ease}
+@media(hover:hover) and (pointer:fine){
+ .chapter-card:hover{transform:translateY(-4px)}
+ .chapter-card:hover .card-image img{transform:scale(1.018)}
+ .chapter-card:has(.full-cover):hover .card-image img{transform:none}
+ .nav-resume:hover,.menu-toggle:hover,.viewer-close:hover,.circle-link:hover{background:#e7e1ed;border-color:#9984ae}
+ .text-link:hover,.next-chapter:hover{color:var(--purple)}
+ a:hover .ui-arrow{transform:translate(2px,-2px)}
+ .zoom-image:hover{box-shadow:0 6px 20px #30243712}
+}
+button:active,.nav-resume:active,.circle-link:active,.text-link:active,.chapter-card:active{transform:scale(.985)}
+@keyframes panel-enter{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+dialog[open]{animation:panel-enter .2s ease-out}
+dialog[open]::backdrop{animation:backdrop-enter .2s ease-out}
+@keyframes backdrop-enter{from{opacity:0}to{opacity:1}}
+@media(max-width:760px){
+ .hero-top{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:8px;margin-top:24px;align-items:center}
+ .hero-top h1{font-size:clamp(34px,8.4vw,62px);line-height:1.2;letter-spacing:-.04em}
+ .hero-portrait{aspect-ratio:.78;max-height:230px}
+ .hero-side{width:100%;max-width:none;font-size:12px;line-height:1.5;letter-spacing:.35px;margin-top:26px}
+ .hero-side>span{padding:0 8px;text-align:center}.hero-side>span:first-child{padding-left:0}
+ .hero{padding-top:28px;padding-bottom:30px}
+ .intro-name{font-size:18px}.hero-bottom p:not(.intro-name){line-height:1.75}
+ .about-portrait{width:min(100%,280px)}
+ .featured-copy{padding:26px 22px}.featured h2{font-size:clamp(24px,6.6vw,32px);line-height:1.45;letter-spacing:0;word-break:keep-all}
+ .featured p{font-size:16px;line-height:1.75;text-align:left}
+ .featured-description p+p{margin-top:10px}
+ .featured .text-link{font-size:14px;gap:18px;margin-top:24px;min-height:44px}
+ .chapter-grid{gap:30px}
+ .chapter-card{display:block;border:1px solid #dcd8e1;background:#fff;overflow:hidden;padding-bottom:22px;border-radius:3px;box-shadow:0 3px 10px #30243704}
+ .chapter-card .card-image{margin:0;border-bottom:1px solid #e6e2e9;aspect-ratio:1.5}
+ .chapter-card .card-meta{margin:20px 20px 10px;font-size:12px;line-height:1.55;letter-spacing:.65px}
+ .chapter-card h3{margin:0 20px;font-size:22px;line-height:1.5;font-weight:550}
+ .chapter-card p{margin:10px 20px 0;max-width:none;font-size:16px;line-height:1.75}
+ header.mobile-ready nav{display:flex;visibility:hidden;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
+ header.mobile-ready.menu-open nav{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto}
+ .chapter-nav.chapters-open>a{animation:panel-enter .18s ease-out}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
+ .chapter-card:hover,.chapter-card:active,a:hover .ui-arrow,button:active{transform:none!important}
+}
